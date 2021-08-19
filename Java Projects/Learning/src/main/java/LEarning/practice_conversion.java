@@ -29,12 +29,8 @@ public static void main(String[] args) {
 			break;
 		default:
 			System.out.println("Wrong input Try Again");
-			
-		
-		
-		}
-			
-		
+				
+			}
 		}	
 	}
 }

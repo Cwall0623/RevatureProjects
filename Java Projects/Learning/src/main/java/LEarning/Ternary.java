@@ -8,7 +8,7 @@ public class Ternary {
 		
 		int c = (a > b) ? (a * 25) : (b % a);
 		
-		Data dOne = new Data();
+
 		
 		
 
