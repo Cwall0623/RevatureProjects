@@ -1,0 +1,14 @@
+#table {
+    border-collapse: collapse;
+    width: 100%;
+    color: black;
+    font-family: monospace;
+    font-size: 100px;
+    text-align: left;
+}
+#logout{
+
+    position:fixed;
+    right:10px;
+    top:5px;
+ }

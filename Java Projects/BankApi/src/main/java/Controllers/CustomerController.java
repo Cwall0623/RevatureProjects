@@ -1,14 +1,17 @@
 package Controllers;
 
 import java.sql.SQLException;
+
 import java.util.List;
 
+import daos.AccountDAO;
 import daos.CustomerDAO;
-import daos.TestTableDAO;
+
 import io.javalin.Javalin;
 import io.javalin.http.Context;
+import nodels.Account;
 import nodels.Customer;
-import nodels.TestTable;
+
 import utils.ConnectionFactory;
 
 public class CustomerController  {
@@ -21,6 +24,7 @@ public class CustomerController  {
 	        //app.get("/getCustomertAccounts/:customer_id", CustomerController :: getCustomerAccounts);
 	        app.get("/getAllCustomers", CustomerController::getAllCustomers);
 	        app.post("/createNewCustomer", CustomerController::createNewCustomer);
+	       
 	    }
 	    public static void testConnection(Context ctx) {
 	        ctx.status(200);
@@ -46,8 +50,8 @@ public class CustomerController  {
 	    public static void createNewCustomer(Context ctx) throws SQLException{
 	    	CustomerDAO dao = new CustomerDAO(ConnectionFactory.getConnection());
 	    	Customer row = ctx.bodyAsClass(Customer.class);
-	    	
 	    	dao.save(row);
+	    	
 	    }
 }
 	    	

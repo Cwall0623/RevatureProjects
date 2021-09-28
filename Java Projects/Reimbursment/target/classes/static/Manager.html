@@ -1,0 +1,41 @@
+<html>
+  <head>
+      <title>
+            Table 
+      </title>
+      <link rel = "stylesheet" href="/Pages/manager.css">
+      <script src= "Scripts/ajax.js"></script>
+    
+    </head>  
+  
+  <body>
+      <h2>Welcome Mugiwara No Luffy</h2>
+      <h2>Reimbursement List</h2>
+      <div id ="table">
+          
+    <table id= "Straw hat Reimbursement">
+          <tr>
+              <th>Case Number</th>
+                <th>description</th>
+                <th>balance</th>
+                <th>Status</th>
+            </tr>
+     
+     
+        </table>
+    
+        <div>
+          <form id = "manager update" method ="POST" action ="http://localhost:7000/update">
+
+            <input type = "text" placeholder="Enter Case Number" required name = "caseNumber"/>
+            <input type = "text" placeholder="Approved/Denied" required name = "status"/>
+            <input type = "submit" placeholder="Submit" required name = "sumbit"/>
+          </form>
+        </div>
+        <form  name="logout" method="post" action="http://localhost:7000/logout">
+          <label class="logout">
+          <input name="submit2" type="submit" id="submit2" value="log out">
+          </label>
+        </form>
+  </body>
+  </html>

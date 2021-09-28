@@ -30,28 +30,25 @@ public class AccountDAO implements Dao<Account>{
 		
 		while(rs.next() && rs2.next()) {
 			Account row = new Account();
-	
 				row.setAccountId(rs.getInt("account_id"));
 				row.setAccountBalance(rs2.getDouble("balance"));
 				accounts.add(row);
-				System.out.println("Customers Accounts: " + rs.getInt("account_id"));
-				System.out.println("balance" + rs.getDouble("balance"));
+				
 		}
 		return accounts;
 		
 	}
 	
 	
-	public Account getAccount(int junctionid) throws SQLException {
-		String sql = "Select account_id FROM accounts_customers ac Where junction_id LIKE ?";
+	public Account getAccount(int accountid) throws SQLException {
+		String sql = "SELECT * FROM accounts a WHERE account_id LIKE ?";
 		PreparedStatement pstmt = connection.prepareStatement(sql);
-		pstmt.setInt(1, junctionid);
+		pstmt.setInt(1, accountid);
 		ResultSet rs = pstmt.executeQuery();
 		Account row = new Account();
 		if(rs.next()) {
 			row.setAccountId(rs.getInt("account_id"));
 			row.setAccountBalance(rs.getDouble("balance"));
-			System.out.println("Account id " + rs.getInt("account_id"));
 			return row;
 		}else {
 			return null;
@@ -60,6 +57,7 @@ public class AccountDAO implements Dao<Account>{
 		
 		
 	}
+
 	
 	
 	@Override
@@ -76,9 +74,11 @@ public class AccountDAO implements Dao<Account>{
 
 	@Override
 	public void save(Account account) throws SQLException {
-		// TODO Auto-generated method stub
+		
 		
 	}
+		
+	
 
 	@Override
 	public void update(Account t, String[] params) {

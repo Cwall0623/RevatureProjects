@@ -1,0 +1,47 @@
+<html>
+<head>
+<title> One piece Reimbursement</title>
+<meta charset = "UTF-8"/>
+<link href="/Pages/home.css">
+<script src= "Scripts/home.js"></script>
+</head>
+
+
+
+<body>
+
+    <header> 
+     <h1> One Piece Reimbursement</h1>
+        
+    </header>
+
+    <h1>Enter Reimbursement</h1>
+    <div id="Reimbursement">
+    <form id="only_form" method = "POST" action = "http://localhost:7000/createReimbursement">
+            <input type="text" placeholder="Reason for Reimbursement" required name = "description"/>
+            <input type="text" placeholder="Amount"required name = "amount"/>
+            <input type="submit" value="Submit Reimbursement">
+
+    </form>
+    </div>
+    <table id= "CrewMemberReimbursement" method = "GET" action = http://localhost:7000/findByCrewNumber>
+        
+          <tr>
+              <th>Case Number</th>
+              <th>description</th>
+              <th>balance</th>
+              <th>Status</th>
+          </tr>
+   
+        
+      </table>
+
+      <form  name ="logout" method="post" action="http://localhost:7000/logout">
+        <label id="logout">
+        <input name="submit2" type="submit" id="submit2" value="log out">
+        </label>
+      </form>
+
+</body>
+
+</html>

@@ -1,14 +1,16 @@
 package daos;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import nodels.Account;
 import nodels.Customer;
-import nodels.TestTable;
+
 
 public class CustomerDAO implements Dao<Customer> {
 
@@ -40,9 +42,7 @@ public class CustomerDAO implements Dao<Customer> {
 	        }
 	}
 
-	
-	
-	
+
 	
 	@Override
 	public List<Customer> getAll() throws SQLException {
@@ -55,8 +55,6 @@ public class CustomerDAO implements Dao<Customer> {
 			Customer row = new Customer();
 			row.setName(rs.getString("name"));
 			row.setCustomerId(rs.getInt("customer_id"));
-			System.out.println("Customer Name " + rs.getString("name"));
-			System.out.println("Customer ID " + rs.getString("customer_id"));
 			customersTable.add(row);
 			
 		}
@@ -78,22 +76,28 @@ public class CustomerDAO implements Dao<Customer> {
 		pstmt2.setString(1, customer.getName());
 		pstmt2.setInt(2, customer.getCustomerId());
 		
-		if(pstmt.executeUpdate() > 0 && pstmt2.executeUpdate() > 0) {
+		String sql3 = "INSERT INTO accounts (account_id,balance) VALUES (?,?)";
+		PreparedStatement pstmt3 = connection.prepareStatement(sql3);
+		pstmt3.setInt(1, customer.getAccountId());
+		pstmt3.setDouble(2, customer.getAccountBalance());
+		
+		if(pstmt.executeUpdate() > 0 && pstmt2.executeUpdate() > 0 && pstmt3.executeUpdate()> 0) {
 			 pstmt.getResultSet();
 			 pstmt2.getResultSet();
+			 pstmt3.getResultSet();
 		}
 		
 	}
 
 	@Override
-	public void update(Customer t, String[] params) {
-		// TODO Auto-generated method stub
+	public void update(Customer customer, String[] params) {
+		
 		
 	}
 
 	@Override
 	public void delete(Customer t) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

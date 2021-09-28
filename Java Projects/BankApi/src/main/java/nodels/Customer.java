@@ -9,8 +9,16 @@ public class Customer {
 	private int customerId;
 	public String name;
 	public int accountId;
+	public Double getAccountBalance() {
+		return accountBalance;
+	}
+
+	public void setAccountBalance(Double accountBalance) {
+		this.accountBalance = accountBalance;
+	}
+
 	public int junctionId;
-	
+	public Double accountBalance;
 	
 	
 	public int getJunctionId() {
